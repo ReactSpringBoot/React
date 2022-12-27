@@ -1,6 +1,8 @@
 import axios from 'axios';
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { Button, Input } from 'reactstrap';
+import Swal from 'sweetalert2';
 
 const SignUp = () => {
     const navigate = useNavigate();
@@ -13,22 +15,24 @@ const SignUp = () => {
         .then((res) => {
             console.log(res.data);
             
-            alert(res.data ? "회원가입 성공" : "회원가입 실패");
-            
+            Swal.fire(
+                "회원가입",
+                res.data ? "성공" : "실패",
+                res.data ? "success" : "error"
+            );
+           
+
             navigate('/');
         });
     }
     return (
-        <div>
+        <div className='div'>
             <h1>회원가입</h1>
-            <p>이름</p>
-            <input type='text' onChange={(e) => {setName(e.target.value)}}/><br/>
-            <p>아이디</p>
-            <input type='text' onChange={(e) => {setId(e.target.value)}}/><br/>
-            <p>비밀번호</p>
-            <input type='text' onChange={(e) => {setPw(e.target.value)}}/><br/><br/>
-            <button onClick={login}>회원가입</button><br/><br/>
-            <Link to='/'>처음으로</Link>
+            <Input className='input' type='text' onChange={(e) => {setName(e.target.value)}} placeholder='이름'/><br/>
+            <Input className='input' type='text' onChange={(e) => {setId(e.target.value)}} placeholder='아이디'/><br/>
+            <Input className='input' type='text' onChange={(e) => {setPw(e.target.value)}} placeholder='비밀번호'/><br/>
+            <Button onClick={login}>회원가입</Button><br/><br/>
+            <Button href='/'>처음으로</Button>
         </div>
     );
 }

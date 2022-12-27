@@ -1,8 +1,11 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { Button, Input } from 'reactstrap';
+import Swal from 'sweetalert2';
 import boardStore from '../store/boardStore';
 import userStore from '../store/userStore';
+import ToBoardList from './ToBoardList';
 
 const BoardUpdateForm = () => {
     const navigate = useNavigate();
@@ -13,7 +16,7 @@ const BoardUpdateForm = () => {
         axios.post('/updateBoard', {title : title, contents : contents, boardNo : boardStore.board.boardNo})
         .then((res) => {
             console.log(res);
-
+            Swal.fire('Update', '성공','success');
             navigate('/board');
         });
     }
@@ -26,14 +29,14 @@ const BoardUpdateForm = () => {
         }
     }, [navigate]);
     return (
-        <div>
+        <div className='div'>
             <h1>게시글 수정</h1>
             <p>제목</p>
-            <input type="text" onChange={e => setTitle(e.target.value)} value={title}/><br/>
+            <Input className='input' type="text" onChange={e => setTitle(e.target.value)} value={title} /><br/>
             <p>내용</p>
-            <input type="text" onChange={e => setContents(e.target.value)} value={contents}/><br/><br/>
-            <button onClick={update}>수정</button><br/><br/>
-            <Link to='/board'>목록으로</Link>
+            <Input className='input' type="text" onChange={e => setContents(e.target.value)} value={contents}/><br/>
+            <Button onClick={update}>수정</Button><br/><br/>
+            <ToBoardList/>
         </div>
     );
 }

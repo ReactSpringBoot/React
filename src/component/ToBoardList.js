@@ -2,12 +2,12 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from 'reactstrap';
 
-const BoardUpdate = () => {
+const ToBoardList = () => {
     const navigate = useNavigate();
 
     return (
-        <Button onClick={() => navigate('/boardUpdate')}>수정</Button>
+        <Button onClick={() => navigate('/board')}>목록으로</Button>
     );
 }
 
-export default BoardUpdate;
+export default ToBoardList;

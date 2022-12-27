@@ -17,9 +17,9 @@ const BoardAction = () => {
         }
     }, []);
     return (
-        <div>
-            {action}<br/>
-        </div>
+        <>
+            {action}
+        </>
     );
 }
 

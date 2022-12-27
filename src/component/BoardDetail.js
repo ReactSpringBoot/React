@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { ButtonGroup, Table } from 'reactstrap';
 import boardStore from '../store/boardStore';
 import userStore from '../store/userStore';
 import BoardAction from './BoardAction';
+import CommentList from './CommentList';
+import NewComment from './NewComment';
+import ToBoardList from './ToBoardList';
 import UserInfo from './UserInfo';
 
 const BoardDetail = () => {
@@ -37,15 +41,19 @@ const BoardDetail = () => {
         }
     }, [navigate]);
     return (
-        <div>
+        <div className='div'>
             <UserInfo/>
             <h1>게시글</h1>
-            <table border='1'>
+            <Table striped hover>
                 <thead></thead>
                 {board}
-            </table><br/>
-            <BoardAction/>
-            <Link to='/board'>목록으로</Link>
+            </Table>
+            <ButtonGroup className='button_group'>
+                <BoardAction/>
+                <ToBoardList/>
+            </ButtonGroup><br/>
+            <NewComment/>
+            <CommentList/>
         </div>
     );
 }

@@ -7,6 +7,8 @@ import BoardUpdateForm from './component/BoardUpdateForm';
 import Login from './component/Login';
 import NewBoard from './component/NewBoard';
 import SignUp from './component/SignUp';
+import 'bootstrap/dist/css/bootstrap.css'
+import './App.css'
 
 const App = () => {
     return (<Observer>{() => (
