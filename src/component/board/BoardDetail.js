@@ -51,7 +51,7 @@ const BoardDetail = () => {
             <ButtonGroup className='button_group'>
                 <BoardAction/>
                 <ToBoardList/>
-            </ButtonGroup><br/>
+            </ButtonGroup>
             <NewComment/>
             <CommentList/>
         </div>

@@ -9,7 +9,7 @@ h1 {
 
 .button_group {
   float: right;
-  padding: 3% 0% 0% 0%;
+  padding: 2% 0% 0% 0%;
 }
 
 .right {
@@ -22,4 +22,5 @@ h1 {
 
 .input_group {
   width: 40%;
+  padding: 2% 0% 0% 0%;
 }
