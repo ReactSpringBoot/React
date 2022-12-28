@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import boardStore from '../store/boardStore';
-import userStore from '../store/userStore';
+import boardStore from '../../store/boardStore';
+import userStore from '../../store/userStore';
 import BoardDelete from './BoardDelete';
 import BoardUpdate from './BoardUpdate';
 

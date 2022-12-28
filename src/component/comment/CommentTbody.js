@@ -1,11 +1,11 @@
 import axios from 'axios';
 import { Observer } from 'mobx-react';
 import React, { useEffect } from 'react';
-import boardStore from '../store/boardStore';
+import boardStore from '../../store/boardStore';
 import CommentDelete from './CommentDelete';
 
 export const getCommentList = () => {
-    axios.get(`/commentList/${boardStore.board.boardNo}`, {})
+    axios.get(`/board/commentList/${boardStore.board.boardNo}`, {})
     .then((res) => {
         console.log(res.data);
         let result = [];

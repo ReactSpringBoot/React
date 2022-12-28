@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button, Table } from 'reactstrap';
-import userStore from '../store/userStore';
+import userStore from '../../store/userStore';
 import BoardTbody from './BoardTbody';
 import BoardThead from './BoardThead';
-import UserInfo from './UserInfo';
+import UserInfo from '../user/UserInfo';
 
 const BoardList = () => {
     const navigate = useNavigate();

@@ -3,8 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button, Input } from 'reactstrap';
 import Swal from 'sweetalert2';
-import boardStore from '../store/boardStore';
-import userStore from '../store/userStore';
+import boardStore from '../../store/boardStore';
+import userStore from '../../store/userStore';
 import ToBoardList from './ToBoardList';
 
 const BoardUpdateForm = () => {
@@ -13,7 +13,7 @@ const BoardUpdateForm = () => {
     const [contents, setContents] = useState('');
     const update = () => {
         console.log(title, contents, boardStore.board.boardNo);
-        axios.post('/updateBoard', {title : title, contents : contents, boardNo : boardStore.board.boardNo})
+        axios.post('/board/updateBoard', {title : title, contents : contents, boardNo : boardStore.board.boardNo})
         .then((res) => {
             console.log(res);
             Swal.fire('Update', '성공','success');

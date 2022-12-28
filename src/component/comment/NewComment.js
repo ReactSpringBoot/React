@@ -1,14 +1,14 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { Button, Input, InputGroup } from 'reactstrap';
-import boardStore from '../store/boardStore';
-import userStore from '../store/userStore';
+import boardStore from '../../store/boardStore';
+import userStore from '../../store/userStore';
 import { getCommentList } from './CommentTbody';
 
 const NewComment = () => {
     const [comment, setComment] = useState('');
     const newComment = () => {
-        axios.post('newComment', {
+        axios.post('/board/newComment', {
             boardNo : boardStore.board.boardNo,
             userNo : userStore.userNo,
             comment : comment

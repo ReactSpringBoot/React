@@ -3,9 +3,9 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button, Input } from 'reactstrap';
 import Swal from 'sweetalert2';
-import userStore from '../store/userStore';
+import userStore from '../../store/userStore';
 import ToBoardList from './ToBoardList';
-import UserInfo from './UserInfo';
+import UserInfo from '../user/UserInfo';
 
 const NewBoard = () => {
     const navigate = useNavigate();
@@ -13,7 +13,7 @@ const NewBoard = () => {
     const [contents, setContents] = useState();
     const insert = () => {
         console.log(title, contents, userStore.userNo);
-        axios.post('/newBoard', {title : title, contents : contents, userNo : userStore.userNo})
+        axios.post('/board/newBoard', {title : title, contents : contents, userNo : userStore.userNo})
         .then((res) => {
             console.log(res);
             Swal.fire('게시글 작성', '성공', "success");

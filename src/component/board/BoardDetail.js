@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ButtonGroup, Table } from 'reactstrap';
-import boardStore from '../store/boardStore';
-import userStore from '../store/userStore';
+import boardStore from '../../store/boardStore';
+import userStore from '../../store/userStore';
 import BoardAction from './BoardAction';
-import CommentList from './CommentList';
-import NewComment from './NewComment';
+import CommentList from '../comment/CommentList';
+import NewComment from '../comment/NewComment';
 import ToBoardList from './ToBoardList';
-import UserInfo from './UserInfo';
+import UserInfo from '../user/UserInfo';
 
 const BoardDetail = () => {
     const [board, setBoard] = useState();

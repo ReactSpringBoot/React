@@ -3,7 +3,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from 'reactstrap';
 import Swal from 'sweetalert2';
-import boardStore from '../store/boardStore';
+import boardStore from '../../store/boardStore';
 
 const BoardDelete = () => {
     const navigate = useNavigate();
@@ -20,7 +20,7 @@ const BoardDelete = () => {
         })
         .then((result) => {
             if (result.value) {
-                axios.post(`/deleteBoard/${boardStore.board.boardNo}`, {})
+                axios.post(`/board/deleteBoard/${boardStore.board.boardNo}`, {})
                 .then(() => {
                     Swal.fire(
                         'Deleted',

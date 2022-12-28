@@ -11,7 +11,7 @@ const SignUp = () => {
     const [pw, setPw] = useState();
     const login = () => {
         console.log(id, pw);
-        axios.post('/signUp', {name : name, id : id, pw : pw})
+        axios.post('/user/signUp', {name : name, id : id, pw : pw})
         .then((res) => {
             console.log(res.data);
             

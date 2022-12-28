@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from 'reactstrap';
 import Swal from 'sweetalert2';
-import userStore from '../store/userStore';
+import userStore from '../../store/userStore';
 
 const UserInfo = () => {
     const navigate = useNavigate();

@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button, Input } from 'reactstrap';
 import Swal from 'sweetalert2';
-import userStore from '../store/userStore';
+import userStore from '../../store/userStore';
 
 const Login = () => {
     const navigate = useNavigate();
@@ -11,7 +11,7 @@ const Login = () => {
     const [pw, setPw] = useState();
     const login = () => {
         console.log(id, pw);
-        axios.post('/login', {id : id, pw : pw})
+        axios.post('/user/login', {id : id, pw : pw})
         .then((res) => {
             console.log(res);
             if (res.data === '') return Swal.fire('로그인', '실패', 'error');

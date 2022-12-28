@@ -1,12 +1,12 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import boardStore from '../store/boardStore';
+import boardStore from '../../store/boardStore';
 
 const BoardTbody = () => {
     const [boardList, setBoardList] = useState();
     useEffect(() => {
-        axios.get('/boardList', {})
+        axios.get('/board/boardList', {})
         .then((res) => {
             // console.log(res.data);
             let result = [];
