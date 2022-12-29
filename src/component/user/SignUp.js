@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button, Input } from 'reactstrap';
 import Swal from 'sweetalert2';
@@ -9,6 +9,10 @@ const SignUp = () => {
     const [name, setName] = useState();
     const [id, setId] = useState();
     const [pw, setPw] = useState();
+
+    useEffect(() => {
+        console.log('제발...');
+    });
     const login = () => {
         console.log(id, pw);
         axios.post('/user/signUp', {name : name, id : id, pw : pw})
@@ -20,7 +24,6 @@ const SignUp = () => {
                 res.data ? "성공" : "실패",
                 res.data ? "success" : "error"
             );
-           
 
             navigate('/');
         });
