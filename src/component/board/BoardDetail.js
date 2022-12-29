@@ -1,45 +1,58 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { ButtonGroup, Table } from 'reactstrap';
 import boardStore from '../../store/boardStore';
-import userStore from '../../store/userStore';
 import BoardAction from './BoardAction';
 import CommentList from '../comment/CommentList';
 import NewComment from '../comment/NewComment';
 import ToBoardList from './ToBoardList';
 import UserInfo from '../user/UserInfo';
+import axios from 'axios';
 
 const BoardDetail = () => {
     const [board, setBoard] = useState();
-    const navigate = useNavigate();
-    // console.log(boardStore.board.userNo);
-    
+    const [comment, setComment] = useState();
+    const location = useLocation();
+
     useEffect(() => {
-        if (userStore.userNo === undefined) {
-            navigate('/');
-        } else {
+        console.log(location.state.boardNo);
+        axios.get(`/board/boardDetail/${location.state.boardNo}`, {})
+        .then((res) => {
+            console.log(res.data);
+            boardStore.setBoard(res.data);
             setBoard(
-                <tbody>
-                    <tr>
-                        <td>제목</td>
-                        <td>{boardStore.board.title}</td>
-                    </tr>
-                    <tr>
-                        <td>작성자</td>
-                        <td>{boardStore.board.name}</td>
-                    </tr>
-                    <tr>
-                        <td>날짜</td>
-                        <td>{boardStore.board.date}</td>
-                    </tr>
-                    <tr>
-                        <td>내용</td>
-                        <td>{boardStore.board.contents}</td>
-                    </tr>
-                </tbody>
+            <tbody>
+                <tr>
+                    <td>제목</td>
+                    <td>{boardStore.board.title}</td>
+                </tr>
+                <tr>
+                    <td>작성자</td>
+                    <td>{boardStore.board.name}</td>
+                </tr>
+                <tr>
+                    <td>날짜</td>
+                    <td>{boardStore.board.date}</td>
+                </tr>
+                <tr>
+                    <td>내용</td>
+                    <td>{boardStore.board.contents}</td>
+                </tr>
+            </tbody>
             );
-        }
-    }, [navigate]);
+            setComment(
+                <>
+                    <ButtonGroup className='button_group'>
+                        <BoardAction/>
+                        <ToBoardList/>
+                    </ButtonGroup>
+                    <NewComment/>
+                    <CommentList/>
+                </>
+            );
+        });
+        
+    }, [location]);
     return (
         <div className='div'>
             <UserInfo/>
@@ -48,12 +61,8 @@ const BoardDetail = () => {
                 <thead></thead>
                 {board}
             </Table>
-            <ButtonGroup className='button_group'>
-                <BoardAction/>
-                <ToBoardList/>
-            </ButtonGroup>
-            <NewComment/>
-            <CommentList/>
+            {comment}
+            
         </div>
     );
 }

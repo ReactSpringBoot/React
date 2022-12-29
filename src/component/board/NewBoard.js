@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button, Input } from 'reactstrap';
 import Swal from 'sweetalert2';
@@ -20,11 +20,6 @@ const NewBoard = () => {
             navigate('/board');
         });
     }
-    useEffect(() => {
-        if (userStore.userNo === undefined) {
-            navigate('/');
-        }
-    });
     return (
         <div className='div'>
             <UserInfo/>

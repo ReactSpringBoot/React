@@ -17,6 +17,7 @@ const Login = () => {
             if (res.data === '') return Swal.fire('로그인', '실패', 'error');
            
             Swal.fire('로그인', '성공', "success");
+            // 여기서 session의 유저 정보를 저장 해야한다.
             let user = res.data;
             userStore.setId(user.id);
             userStore.setName(user.name);
