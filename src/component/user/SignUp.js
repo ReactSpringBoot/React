@@ -6,9 +6,9 @@ import Swal from 'sweetalert2';
 
 const SignUp = () => {
     const navigate = useNavigate();
-    const [name, setName] = useState();
-    const [id, setId] = useState();
-    const [pw, setPw] = useState();
+    const [name, setName] = useState('');
+    const [id, setId] = useState('');
+    const [pw, setPw] = useState('');
 
     useEffect(() => {
         console.log('제발...');

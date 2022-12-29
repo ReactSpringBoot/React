@@ -5,7 +5,7 @@ import BoardDelete from './BoardDelete';
 import BoardUpdate from './BoardUpdate';
 
 const BoardAction = () => {
-    const [action , setAction] = useState();
+    const [action , setAction] = useState([]);
     useEffect(() => {
         if(userStore.userNo === boardStore.board.userNo){
             setAction(

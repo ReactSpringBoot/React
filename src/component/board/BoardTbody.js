@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const BoardTbody = () => {
-    const [boardList, setBoardList] = useState();
+    const [boardList, setBoardList] = useState([]);
     useEffect(() => {
         axios.get('/board/boardList', {})
         .then((res) => {

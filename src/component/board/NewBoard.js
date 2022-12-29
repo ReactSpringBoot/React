@@ -9,8 +9,8 @@ import UserInfo from '../user/UserInfo';
 
 const NewBoard = () => {
     const navigate = useNavigate();
-    const [title, setTitle] = useState();
-    const [contents, setContents] = useState();
+    const [title, setTitle] = useState('');
+    const [contents, setContents] = useState('');
     const insert = () => {
         console.log(title, contents, userStore.userNo);
         axios.post('/board/newBoard', {title : title, contents : contents, userNo : userStore.userNo})

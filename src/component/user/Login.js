@@ -6,8 +6,8 @@ import Swal from 'sweetalert2';
 
 const Login = () => {
     const navigate = useNavigate();
-    const [id, setId] = useState();
-    const [pw, setPw] = useState();
+    const [id, setId] = useState('');
+    const [pw, setPw] = useState('');
     const login = () => {
         console.log(id, pw);
         axios.post('/user/login', {id : id, pw : pw})

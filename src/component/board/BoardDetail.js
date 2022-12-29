@@ -10,8 +10,8 @@ import UserInfo from '../user/UserInfo';
 import axios from 'axios';
 
 const BoardDetail = () => {
-    const [board, setBoard] = useState();
-    const [comment, setComment] = useState();
+    const [board, setBoard] = useState([]);
+    const [comment, setComment] = useState([]);
     const location = useLocation();
 
     useEffect(() => {
