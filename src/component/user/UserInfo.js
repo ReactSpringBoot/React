@@ -12,8 +12,11 @@ const UserInfo = () => {
     useEffect(() => {
         axios.get('/user/getSession')
         .then((res) => {
-            console.log('이거야 이거', res.data);
-            if (res.data === null) logout();
+            console.log('여기', res);
+            if (res.data === '') {
+                Swal.fire('세션만료', ' ','info');
+                navigate('/');
+            }
             let user = res.data;
             userStore.setId(user.id);
             userStore.setName(user.name);
