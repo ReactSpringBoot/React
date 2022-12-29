@@ -8,14 +8,26 @@ import userStore from '../../store/userStore';
 const UserInfo = () => {
     const [info, setInfo] = useState([]);
     const navigate = useNavigate();
-    
+
+    const deleteUserStore = (str, acction) => {
+        userStore.setId(undefined);
+            userStore.setName(undefined);
+            userStore.setUserNo(undefined);
+            Swal.fire(str, ' ', acction);
+            navigate('/');
+    }
+    const logout = () => {
+        axios.post('/api/user/logout', {})
+        .then(() => {
+            deleteUserStore('로그아웃', 'success');
+        });        
+    }
     useEffect(() => {
-        axios.get('/user/getSession')
+        axios.get('/api/user/getSession')
         .then((res) => {
             console.log('여기', res);
             if (res.data === '') {
-                Swal.fire('세션만료', ' ','info');
-                navigate('/');
+                deleteUserStore('로그인을 해주세요', 'info');
             }
             let user = res.data;
             userStore.setId(user.id);
@@ -25,17 +37,7 @@ const UserInfo = () => {
         });        
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
-    // 여기서 session의 유저 정보를 삭제 해야한다.
-    const logout = () => {
-        axios.post('/user/logout', {})
-        .then(() => {
-            userStore.setId(undefined);
-            userStore.setName(undefined);
-            userStore.setUserNo(undefined);
-            navigate('/');
-            Swal.fire('로그아웃', ' ','success');
-        });        
-    }
+    
     return (
         <>
             {info}       

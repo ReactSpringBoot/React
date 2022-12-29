@@ -10,7 +10,7 @@ const Login = () => {
     const [pw, setPw] = useState('');
     const login = () => {
         console.log(id, pw);
-        axios.post('/user/login', {id : id, pw : pw})
+        axios.post('/api/user/login', {id : id, pw : pw})
         .then((res) => {
             console.log(res);
             if (res.data === '') return Swal.fire('로그인', '실패', 'error');

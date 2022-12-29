@@ -22,7 +22,7 @@ const CommentDelete = (props) => {
                 })
                 .then((result) => {
                     if (result.value) {
-                        axios.post(`/board/commentDelete/${props.commentNo}`, {})
+                        axios.post(`/api/board/commentDelete/${props.commentNo}`, {})
                         .then(() => {
                             getCommentList();
                             Swal.fire(

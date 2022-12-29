@@ -20,7 +20,7 @@ const BoardDelete = () => {
         })
         .then((result) => {
             if (result.value) {
-                axios.post(`/board/deleteBoard/${boardStore.board.boardNo}`, {})
+                axios.post(`/api/board/deleteBoard/${boardStore.board.boardNo}`, {})
                 .then(() => {
                     Swal.fire(
                         'Deleted',

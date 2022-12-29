@@ -16,7 +16,7 @@ const BoardDetail = () => {
 
     useEffect(() => {
         console.log(location.state.boardNo);
-        axios.get(`/board/boardDetail/${location.state.boardNo}`, {})
+        axios.get(`/api/board/boardDetail/${location.state.boardNo}`, {})
         .then((res) => {
             console.log(res.data);
             boardStore.setBoard(res.data);

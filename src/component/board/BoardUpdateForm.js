@@ -13,7 +13,7 @@ const BoardUpdateForm = () => {
     const [contents, setContents] = useState('');
     const update = () => {
         console.log(title, contents, boardStore.board.boardNo);
-        axios.post('/board/updateBoard', {title : title, contents : contents, boardNo : boardStore.board.boardNo})
+        axios.post('/api/board/updateBoard', {title : title, contents : contents, boardNo : boardStore.board.boardNo})
         .then((res) => {
             console.log(res);
             Swal.fire('Update', '성공','success');

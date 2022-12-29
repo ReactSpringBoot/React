@@ -13,7 +13,7 @@ const NewBoard = () => {
     const [contents, setContents] = useState('');
     const insert = () => {
         console.log(title, contents, userStore.userNo);
-        axios.post('/board/newBoard', {title : title, contents : contents, userNo : userStore.userNo})
+        axios.post('/api/board/newBoard', {title : title, contents : contents, userNo : userStore.userNo})
         .then((res) => {
             console.log(res);
             Swal.fire('게시글 작성', '성공', "success");

@@ -8,7 +8,7 @@ import { getCommentList } from './CommentTbody';
 const NewComment = () => {
     const [comment, setComment] = useState('');
     const newComment = () => {
-        axios.post('/board/newComment', {
+        axios.post('/api/board/newComment', {
             boardNo : boardStore.board.boardNo,
             userNo : userStore.userNo,
             comment : comment
