@@ -23,7 +23,7 @@ const BoardUpdateForm = () => {
     useEffect(() => {
         setTitle(boardStore.board.title);
         setContents(boardStore.board.contents);
-    }, [navigate]);
+    }, []);
     return (
         <div className='div'>
             <UserInfo/>
@@ -31,7 +31,7 @@ const BoardUpdateForm = () => {
             <p>제목</p>
             <Input className='input' type="text" onChange={e => setTitle(e.target.value)} value={title} /><br/>
             <p>내용</p>
-            <Input className='input' type="text" onChange={e => setContents(e.target.value)} value={contents}/><br/>
+            <Input className='input_textarea' type="textarea" onChange={e => setContents(e.target.value)} value={contents}/><br/>
             <Button onClick={update}>수정</Button><br/><br/>
             <ToBoardList/>
         </div>

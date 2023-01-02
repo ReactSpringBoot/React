@@ -13,6 +13,7 @@ const BoardDetail = () => {
     const [board, setBoard] = useState([]);
     const [comment, setComment] = useState([]);
     const location = useLocation();
+    
 
     useEffect(() => {
         console.log(location.state.boardNo);
@@ -20,6 +21,15 @@ const BoardDetail = () => {
         .then((res) => {
             console.log(res.data);
             boardStore.setBoard(res.data);
+            
+            const temp = boardStore.board.contents.split('\n');
+            
+            const result = [];
+
+            temp.forEach(v => {
+                result.push(<>{v}<br/></>)
+            });
+
             setBoard(
             <tbody>
                 <tr>
@@ -36,7 +46,7 @@ const BoardDetail = () => {
                 </tr>
                 <tr>
                     <td>내용</td>
-                    <td>{boardStore.board.contents}</td>
+                    <td>{result}</td>
                 </tr>
             </tbody>
             );
