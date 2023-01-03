@@ -72,7 +72,6 @@ const BoardDetail = () => {
                 {board}
             </Table>
             {comment}
-            
         </div>
     );
 }

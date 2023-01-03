@@ -1,14 +1,13 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Button, Table } from 'reactstrap';
+import { Table } from 'reactstrap';
 import BoardTbody from './BoardTbody';
 import BoardThead from './BoardThead';
 import UserInfo from '../user/UserInfo';
+import NewBoardButton from './NewBoardButton';
+import { Observer } from 'mobx-react';
 
-const BoardList = () => {
-    const navigate = useNavigate();
-    
-    return (
+const BoardList = () => {    
+    return (<Observer>{() => (
         <div className='div'>
             <UserInfo/>
             <h1>게시판</h1>
@@ -16,9 +15,9 @@ const BoardList = () => {
                 <BoardThead/>
                 <BoardTbody/>
             </Table><br/>
-            <Button onClick={() => navigate('/newBoard')}>게시글 작성</Button>
+            <NewBoardButton/>
         </div>
-    );
+    )}</Observer> );
 }
 
 export default BoardList;

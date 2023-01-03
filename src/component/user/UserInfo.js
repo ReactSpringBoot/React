@@ -9,17 +9,21 @@ const UserInfo = () => {
     const [info, setInfo] = useState([]);
     const navigate = useNavigate();
 
-    const deleteUserStore = (str, acction) => {
+    const deleteUserStore = () => {
         userStore.setId(undefined);
-            userStore.setName(undefined);
-            userStore.setUserNo(undefined);
-            Swal.fire(str, ' ', acction);
-            navigate('/');
+        userStore.setName(undefined);
+        userStore.setUserNo(undefined);
+    }
+    const login = () => {
+        Swal.fire('알림', '로그인 페이지로 이동합니다.', 'info'); 
+        navigate('/');
     }
     const logout = () => {
         axios.post('/api/user/logout', {})
         .then(() => {
             deleteUserStore('로그아웃', 'success');
+            Swal.fire('로그아웃', ' ', 'success');
+            navigate('/'); 
         });        
     }
     useEffect(() => {
@@ -27,7 +31,8 @@ const UserInfo = () => {
         .then((res) => {
             console.log('여기', res);
             if (res.data === '') {
-                deleteUserStore('로그인을 해주세요', 'info');
+                deleteUserStore();
+                setInfo([<p><Button onClick={login}>로그인</Button></p>]); return;
             }
             let user = res.data;
             userStore.setId(user.id);
