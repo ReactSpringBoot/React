@@ -27,7 +27,14 @@ const BoardDetail = () => {
             const result = [];
 
             temp.forEach(v => {
-                result.push(<>{v}<br/></>)
+                const result2 = [];
+                v.split(' ').forEach(v => {
+                    if (v === '')
+                        result2.push(<>&nbsp;</>);
+                    else
+                        result2.push(<>{v}</>)
+                });
+                result.push(<>{result2}<br/></>)
             });
 
             setBoard(
