@@ -14,7 +14,6 @@ const BoardDetail = () => {
     const [comment, setComment] = useState([]);
     const location = useLocation();
     
-
     useEffect(() => {
         console.log(location.state.boardNo);
         axios.get(`/api/board/boardDetail/${location.state.boardNo}`, {})

@@ -5,7 +5,7 @@ import boardStore from '../../store/boardStore';
 import CommentDelete from './CommentDelete';
 
 export const getCommentList = () => {
-    axios.get(`/api/board/commentList/${boardStore.board.boardNo}`, {})
+    axios.get(`/api/comment/commentList/${boardStore.board.boardNo}`, {})
     .then((res) => {
         console.log(res.data);
         let result = [];
