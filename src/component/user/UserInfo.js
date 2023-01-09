@@ -24,6 +24,10 @@ const UserInfo = () => {
             deleteUserStore('로그아웃', 'success');
             Swal.fire('로그아웃', ' ', 'success');
             navigate('/'); 
+        })
+        .catch((res) => {
+            console.log(res);
+            Swal.fire('서버 에러', '', "error");
         });        
     }
     useEffect(() => {
@@ -39,6 +43,10 @@ const UserInfo = () => {
             userStore.setName(user.name);
             userStore.setUserNo(user.userNo);
             setInfo([<p>{userStore.name}({userStore.id}) <Button onClick={logout}>로그아웃</Button></p>]);
+        })
+        .catch((res) => {
+            console.log(res);
+            Swal.fire('서버 에러', '', "error");
         });        
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);

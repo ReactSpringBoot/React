@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { Observer } from 'mobx-react';
 import React, { useEffect } from 'react';
+import Swal from 'sweetalert2';
 import boardStore from '../../store/boardStore';
 import CommentDelete from './CommentDelete';
 
@@ -19,6 +20,10 @@ export const getCommentList = () => {
             );
         });
         boardStore.setCommentList(result);
+    })
+    .catch((res) => {
+        console.log(res);
+        Swal.fire('서버 에러', '', "error");
     });
 }
 

@@ -18,6 +18,10 @@ const BoardUpdateForm = () => {
             console.log(res);
             Swal.fire('Update', '성공','success');
             navigate('/board');
+        })
+        .catch((res) => {
+            console.log(res);
+            Swal.fire('서버 에러', '', "error");
         });
     }
     useEffect(() => {

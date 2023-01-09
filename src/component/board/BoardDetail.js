@@ -8,6 +8,7 @@ import NewComment from '../comment/NewComment';
 import ToBoardList from './ToBoardList';
 import UserInfo from '../user/UserInfo';
 import axios from 'axios';
+import Swal from 'sweetalert2';
 
 const BoardDetail = () => {
     const [board, setBoard] = useState([]);
@@ -66,6 +67,10 @@ const BoardDetail = () => {
                     <CommentList/>
                 </>
             );
+        })
+        .catch((res) => {
+            console.log(res);
+            Swal.fire('서버 에러', '', "error");
         });
         
     }, [location]);

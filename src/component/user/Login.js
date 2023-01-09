@@ -24,6 +24,10 @@ const Login = () => {
             userStore.setUserNo(user.userNo);
 
             navigate('/board');
+        })
+        .catch((res) => {
+            console.log(res);
+            Swal.fire('서버 에러', '', "error");
         });
     }
 

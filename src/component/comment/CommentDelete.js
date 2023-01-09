@@ -30,6 +30,10 @@ const CommentDelete = (props) => {
                                 '삭제완료',
                                 'success'
                             )
+                        })
+                        .catch((res) => {
+                            console.log(res);
+                            Swal.fire('서버 에러', '', "error");
                         });              
                     }
                 })

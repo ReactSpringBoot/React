@@ -22,6 +22,10 @@ const NewBoard = () => {
             console.log(res);
             Swal.fire('게시글 작성', '성공', "success");
             navigate('/board');
+        })
+        .catch((res) => {
+            console.log(res);
+            Swal.fire('서버 에러', '', "error");
         });
     }
     return (

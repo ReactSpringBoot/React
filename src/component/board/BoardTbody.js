@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const BoardTbody = () => {
     const [boardList, setBoardList] = useState([]);
@@ -22,6 +23,10 @@ const BoardTbody = () => {
                 );
             }
             setBoardList(result);
+        })
+        .catch((res) => {
+            console.log(res);
+            Swal.fire('서버 에러', '', "error");
         });
     }, []);
     return (
