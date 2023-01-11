@@ -22,20 +22,21 @@ const BoardDetail = () => {
             console.log(res.data);
             boardStore.setBoard(res.data);
             
-            const temp = boardStore.board.contents.split('\n');
+            // const temp = boardStore.board.contents.split('\n');
             
-            const result = [];
+            // const result = [];
 
-            temp.forEach(v => {
-                const result2 = [];
-                v.split(' ').forEach(v => {
-                    if (v === '')
-                        result2.push(<>&nbsp;</>);
-                    else
-                        result2.push(<>{v}</>)
-                });
-                result.push(<>{result2}<br/></>)
-            });
+            // temp.forEach(v => {
+            //     const result2 = [];
+            //     v.split(' ').forEach(v => {
+            //         if (v === '')
+            //             result2.push(<>&nbsp;</>);
+            //         else
+            //             result2.push(<>{v}</>)
+            //     });
+            //     result.push(<>{result2}<br/></>)
+            //     result.push()
+            // });
 
             setBoard(
             <tbody>
@@ -53,7 +54,7 @@ const BoardDetail = () => {
                 </tr>
                 <tr>
                     <td>내용</td>
-                    <td>{result}</td>
+                    <td><pre>{boardStore.board.contents}</pre></td>
                 </tr>
             </tbody>
             );
